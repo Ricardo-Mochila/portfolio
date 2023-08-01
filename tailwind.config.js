@@ -20,7 +20,10 @@ module.exports = {
       },
       inset: {
         'unset': 'unset'
-      }
+      },
+      fontFamily: {
+        mono: ['var(--mono)'],
+      },
     },
   },
   plugins: [],

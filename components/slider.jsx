@@ -1,116 +1,89 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import Carousel from 'react-multi-carousel'
-import "react-multi-carousel/lib/styles.css";
+import {useRef} from 'react';
+import {motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Slider() {
 
-    const responsive = {
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3,
-          slidesToSlide: 3 // optional, default to 1.
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2,
-          slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1,
-          slidesToSlide: 1 // optional, default to 1.
-        }
-    };
+	const ref = useRef(null);
 
+	const { scrollYProgress } = useScroll({
+	  target: ref,
+	  offset: ["end end", "start start"]
+	});
+
+	const transformY = useTransform(
+		scrollYProgress,
+		[0, 0.4, 1],
+		[-4000, -2000, 4000]
+	)
 
     return (
-        <section id='slider' className='keen-slider flex gap-[30px] items-center justify-center h-[200px]'>
-            <Carousel
-                 additionalTransfrom={0}
-                 arrows={false}
-                 autoPlay
-                 autoPlaySpeed={0.3}
-                 centerMode={false}
-                 className=""
-                 containerClass="container-with-dot h-[100%] w-[100%] flex"
-                 customTransition="all 1s linear"
-                 dotListClass=""
-                 draggable={false}
-                 focusOnSelect={false}
-                 infinite
-                 itemClass=""
-                 keyBoardControl={false}
-                 minimumTouchDrag={0}
-                 pauseOnHover={false}
-                 renderArrowsWhenDisabled={false}
-                 renderButtonGroupOutside={false}
-                 renderDotsOutside={false}
-                 responsive={{
-                   desktop: {
-                     breakpoint: {
-                       max: 3000,
-                       min: 1024
-                     },
-                     items: 3,
-                     partialVisibilityGutter: 40
-                   },
-                   mobile: {
-                     breakpoint: {
-                       max: 464,
-                       min: 0
-                     },
-                     items: 1,
-                     partialVisibilityGutter: 30
-                   },
-                   tablet: {
-                     breakpoint: {
-                       max: 1024,
-                       min: 464
-                     },
-                     items: 2,
-                     partialVisibilityGutter: 30
-                   }
-                 }}
-                 rewind={false}
-                 rewindWithAnimation={false}
-                 rtl={false}
-                 shouldResetAutoplay={false}
-                 showDots={false}
-                 sliderClass=""
-                 slidesToSlide={1}
-                 swipeable={false}
-                 transitionDuration={1000}
-                >
-                    <Image src='/slider/sass.png'
-                    width={495}
-                    height={200}
-                    alt='sass logo'
-                    />
-                    <Image src='/slider/mongoDB.png'
-                    width={495}
-                    height={200}
-                    alt='mongoDB logo'
-                    />
-                    <Image src='/slider/nodeJs.png'
-                    width={495}
-                    height={200}
-                    alt='nodejs logo'
-                    />
-                    <Image src='/slider/pngwing.png'
-                    width={495}
-                    height={200}
-                    alt='express logo'
-                    />
-                    <Image src='/slider/scss.png'
-                    width={495}
-                    height={200}
-                    alt='scss logo'
-                    />
-            </Carousel>
-            
+        <section ref={ref}>
+			<motion.div className="h-[100px] relative flex gap-[60px]" style={{translateX: transformY}}>
+				<Image src='/slider/sass.png'
+				width={495}
+				height={200}
+				alt='sass logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/mongoDB.png'
+				width={495}
+				height={200}
+				alt='mongoDB logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/nodeJs.png'
+				width={495}
+				height={200}
+				alt='nodejs logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/pngwing.png'
+				width={495}
+				height={200}
+				alt='express logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/scss.png'
+				width={495}
+				height={200}
+				alt='scss logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/sass.png'
+				width={495}
+				height={200}
+				alt='sass logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/mongoDB.png'
+				width={495}
+				height={200}
+				alt='mongoDB logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/nodeJs.png'
+				width={495}
+				height={200}
+				alt='nodejs logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/pngwing.png'
+				width={495}
+				height={200}
+				alt='express logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+				<Image src='/slider/scss.png'
+				width={495}
+				height={200}
+				alt='scss logo'
+				className='h-[100px] w-auto brightness-[10] grayscale'
+				/>
+			</motion.div>
+			
         </section>
     )
 }

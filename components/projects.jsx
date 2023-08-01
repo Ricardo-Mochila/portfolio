@@ -4,7 +4,7 @@ export default function Projects() {
 
     const PROJECT_LIST = [
         {
-            src: '/projects/nodeSandbox.png',
+            src: '/projects/nodeSandbox.jpg',
             title: 'Custom CMS',
             devType: 'FullStack Developer',
             text: 'This was the biggest project I have worked on.\nI was part of a 2 developer team that created a full scale custom CMS',
@@ -47,7 +47,7 @@ export default function Projects() {
 
     return (
         <section id="projects" className="max-w-[1200px] m-auto p-[20px] md:p-[40px] mt-[50px] md:mt-[80px]">
-            <h2 className="text-secondary-color flex text-md md:text-xl mb-2 relative after:flex after:h-[2px] after:w-[100%] after:bg-secondary-color after:self-center after:ml-[30px] after:opacity-20 after:mt-[5px]">.projects()</h2>
+            <h2 className="font-mono text-secondary-color flex text-md md:text-xl mb-2 relative after:flex after:h-[2px] after:w-[100%] after:bg-secondary-color after:self-center after:ml-[30px] after:opacity-20 after:mt-[5px]">.projects()</h2>
 
             <div className="flex flex-col gap-[30px] md:gap-[120px]">
                 {
