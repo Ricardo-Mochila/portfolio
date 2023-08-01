@@ -7,11 +7,6 @@ import { usePathname } from 'next/navigation'
 import SplashScreen from '../components/splashScreen'
 import { Inconsolata } from 'next/font/google'
 
-export const metadata = {
-  title: 'Ricardo Mochila',
-  description: 'Software Engineer - Ricardo Mochila',
-}
-
 export const mono = Inconsolata({
     subsets: ['latin'],
     display: 'swap',
